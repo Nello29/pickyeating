@@ -27,13 +27,41 @@
     a:hover{text-decoration:underline}
     .container{width:90%;max-width:960px;margin:0 auto;padding:1rem}
 
-    /*======================= HERO =======================*/
-header{
-  background:var(--primary-green);color:var(--text-light);padding:2.5rem 0 0.5rem;clip-path: polygon(0 0,100% 5%,100% 95%,0 100%);}
-    .hero-wrapper-top {background-color: var(--yellow);padding: 4px 0;clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 100%);}
-    .hero-wrapper-bottom {background-color: var(--yellow);padding: 4px 0;clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 100%);}
-    .hero-wrapper{display:flex;flex-direction:column;align-items:center;gap:0.5rem}
-    .hero-image{max-width:300px;margin-bottom:0.5rem}
+    /* ========== HERO VERDE ========== */
+header {
+  background: var(--primary-green);
+  color: var(--text-light);
+  padding: 2.5rem 0 0.5rem;
+  text-align: center;
+  clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 100%);
+}
+
+/* ===== BORDA GIALLO SOPRA ===== */
+.hero-wrapper-top {
+  background-color: var(--yellow);
+  padding: 4px 0;
+  clip-path: polygon(0 0, 100% 0, 100% 5%, 0 8%);
+}
+
+/* ===== BORDA GIALLO SOTTO ===== */
+.hero-wrapper-bottom {
+  background-color: var(--yellow);
+  padding: 4px 0;
+  clip-path: polygon(0 8%, 100% 5%, 100% 100%, 0 100%);
+}
+
+/* ===== LAYOUT INTERNI HERO ===== */
+.hero-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-image {
+  max-width: 300px;
+  margin-bottom: 0.5rem;
+}
 
     /* --- TYPOGRAPHY mirroring sample template --- */
     .book-title{font-size:2rem;line-height:1.2;margin:0.5rem 0 0.25rem;text-align:center;font-weight:bold}
@@ -86,25 +114,22 @@ header{
 </head>
 <body>
 
-  <!-- ============== HERO WRAPPED CON BORDI GIALLO ============== -->
-
-<!-- STRISCIA GIALLO SOPRA LA HERO -->
+<!-- ======== BORDO GIALLO SOPRA ======== -->
 <div class="hero-wrapper-top">
-  <!-- HERO VERDE CON CLIP-PATH -->
-  <header class="hero">
+  <header>
     <div class="container hero-wrapper">
       <h1 class="book-title">THE PICKY EATER COOKBOOK</h1>
-
       <div class="hero-image">
         <img src="cover.picky.cookbook.png" alt="The Picky Eater Cookbook – 3D Cover">
       </div>
-
-      <p class="sub-title">Kid-Approved Recipes to Help Busy Parents Serve Nutritious Meals</p>
+      <p class="sub-title">
+        Kid-Approved Recipes to Help Busy Parents Serve Nutritious Meals
+      </p>
     </div>
   </header>
 </div>
 
-<!-- STRISCIA GIALLO SOTTO LA HERO -->
+<!-- ======== BORDO GIALLO SOTTO ======== -->
 <div class="hero-wrapper-bottom"></div>
         
  <!-- =============== OFFER SECTION =============== -->
