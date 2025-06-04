@@ -50,38 +50,12 @@ header{
 
     /*======================= BENEFITS =======================*/
     section{padding:0.5rem 0}
-    .benefits {
-  background: var(--primary-green);
-  color: var(--text-light);
-  text-align: center;
-  padding: 2rem 0 3rem;
-  position: relative;}
+    .benefits{background:var(--primary-green);color:var(--text-light);text-align:center;clip-path:polygon(0 0,100% 5%,100% 95%,0 100%);}
     .benefits h2{color:var(--yellow);font-size:1.5rem;margin-bottom:1rem;margin-top:2rem;font-weight:bold}
     .benefits ul{list-style:none;padding:0;margin:0 auto;max-width:600px;text-align:left}
     .benefits li{margin:0.5rem 0;font-size:1.125rem;position:relative;padding-left:1.5rem}
     .benefits li::before{content:"✔";position:absolute;left:0;color:var(--yellow);font-size:1.2rem;line-height:1}
-    .benefits::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 6vw;
-  background: var(--yellow);
-  transform-origin: top left;
-  transform: skewY(-3deg);
-  z-index: 1;
-  pointer-events: none;
-}
-    .benefits-wrapper {
-  position: relative;
-}
-
-.trust {
-  background: var(--cream);
-  margin-top: -2vw;
-  padding-top: calc(2rem + 2vw);
-}
+    .benefits-wrapper {background-color: var(--yellow);padding: 2px 0;clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 100%);}
 
     /*======================= TRUST =======================*/
     .trust{background:var(--cream);color:var(--text-dark);text-align:center;padding:2rem 0;border-bottom:2px solid var(--yellow)}
@@ -158,9 +132,11 @@ header{
 
   <!-- ================= TRUST / AUTHOR SECTION ================= -->
   <section class="trust">
+    <div class="container">
       <img src="profilo.sarah.dawson.png" alt="Sarah Dawson" class="author-photo" />
       <p class="author-name">Written by <strong>Sarah Dawson</strong>, early‑childhood educator & daycare owner.</p>
       <p class="author-blurb">She is a veteran teacher and childcare professional who has guided <strong>hundreds of families</strong> through picky‑eating challenges with her positive, research‑driven approach.</p>
+    </div>
   </section>
 
   <!-- ================= FOOTER ================= -->
