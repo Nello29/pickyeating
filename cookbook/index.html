@@ -47,6 +47,9 @@ header{
     /*================ OFFER (celebrate + form) ================*/
     .offer{background:var(--light-green);color:var(--text-dark);padding:2rem 0;}
     .offer-wrapper{max-width:600px;margin:0 auto;text-align:center}
+    .offer-wrapper{background:#eff7f6;clip-path:polygon(0 0,100% 0,100% 95%,0 100%); /* stessa diagonale della sezione */
+}
+
 
     /*======================= BENEFITS =======================*/
     section{padding:0.5rem 0}
@@ -95,13 +98,14 @@ header{
 </header>
         
  <!-- =============== OFFER SECTION =============== -->
-<section class="offer">
+<div class="offer-wrapper">
+  <section class="offer">
   <div class="container offer-wrapper">
     <p class="celebrate">
       To celebrate reaching thousands of families and becoming a bestseller,
       we’re giving away this $16.95 cookbook absolutely <strong>FREE</strong> — for a limited time only.
     </p>
-
+</div>
     <!-- ========= AWeber Embedded Form ========= -->
 <div class="AW-Form-501599832"></div>
 <script type="text/javascript">(function(d, s, id) {
