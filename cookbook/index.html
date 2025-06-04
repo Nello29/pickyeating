@@ -1,231 +1,533 @@
-<!--\n  Landing page for "The Picky Eater Cookbook" – free digital copy giveaway\n  NOTE: Replace cover/author/bonus image sources, Aweber form embed, Amazon review link,\n  bonus download link and privacy-policy URL before going live.\n  Version: v2 – revised for cleaner, more professional design following client feedback.\n-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Picky Eater Cookbook – Claim Your Free Copy</title>
+  <title>The Picky Eater Cookbook – Free Copy</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!--=====================================
+    GOOGLE FONTS
+  =====================================-->
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
-    /* ==========  BRAND PALETTE  ========== */
-    :root{
-      --green:#6DBB28;   /* cover green */
-      --yellow:#FFF200;  /* cover yellow */
-      --orange:#F7931E;  /* carrot orange */
-      --cream:#FFF9E5;   /* light background */
-      --dark:#2F3232;    /* body text */
-      --gray:#666;
+    /*=====================================
+      COLOR PALETTE (from book cover)
+    =====================================*/
+    :root {
+      --dark-green:   #1E4D2B;
+      --bright-green: #67C23A;
+      --yellow:       #FFDF52;
+      --yellow-deep:  #E6C742;
+      --orange:       #FF8C42;
+      --cream:        #FFF9EF;
+      --white:        #FFFFFF;
+      --text-dark:    #262626;
+      --text-light:   #FFFFFF;
+      --card-bg:      rgba(255,255,255,0.85);
     }
 
-    /* ==========  RESET  ========== */
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:'Poppins', Arial,sans-serif;
-      color:var(--dark);
-      background:var(--cream);
-      -webkit-font-smoothing:antialiased;
-      line-height:1.55;
+    /*=====================================
+      RESET & BASE
+    =====================================*/
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    img{max-width:100%;height:auto;display:block}
-    a{color:var(--orange);text-decoration:none}
-    h1,h2,h3,h4{font-weight:700;line-height:1.25;color:var(--dark)}
-    h1{font-size:2.4rem}
-    h2{font-size:1.8rem;margin-bottom:1rem}
-    h3{font-size:1.35rem;margin-bottom:.6rem}
-    p{margin:.6rem 0}
-
-    /* ==========  GLOBAL UTILS  ========== */
-    .container{width:92%;max-width:1100px;margin:0 auto;padding:2.5rem 0}
-    .btn{
-      display:inline-block;
-      background:var(--orange);
-      color:#fff;
-      padding:1rem 1.75rem;
-      border:none;
-      border-radius:10px;
-      font-weight:600;
-      font-size:1rem;
-      text-align:center;
-      cursor:pointer;
-      transition:all .25s ease;
+    html {
+      font-family: 'Lora', serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    .btn:hover{opacity:.88;transform:translateY(-2px)}
-    .section-bg-light{background:#fff}
-
-    /* ==========  HERO  ========== */
-    header.hero{background:#fff}
-    .hero-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:2.5rem;
-      align-items:center;
+    body {
+      background-color: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.6;
     }
-    .hero-copy p.lead{font-size:1.1rem;font-weight:500;margin-bottom:1rem;color:var(--gray)}
-    .hero-copy p.small{font-size:.92rem;color:var(--gray)}
-    .cover-wrapper{max-width:340px;margin:0 auto}
-
-    /* Aweber placeholder */
-    .form-wrapper{margin-top:1.5rem}
-    .AW-Form-867734951{width:100%}
-
-    /* ==========  STEPS SECTION  ========== */
-    .steps{background:#FFFAF0}
-    .step-list{list-style:none;display:grid;gap:1rem;margin-top:1.5rem}
-    .step-item{
-      display:flex;align-items:center;gap:.9rem;
-      background:#fff;padding:.9rem 1.25rem;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.05);
-      font-weight:500;
+    a {
+      color: var(--bright-green);
+      text-decoration: none;
     }
-    .step-item .icon{font-size:1.5rem}
-
-    /* ==========  BONUS SECTION  ========== */
-    .bonus-intro{text-align:center}
-    .bonus-intro h2{color:var(--orange)}
-    .bonus-image{max-width:420px;margin:1.75rem auto}
-    .bonus-details{margin-top:2rem}
-    .bonus-details ul{list-style:none;display:grid;gap:.75rem}
-    .bonus-details li{display:flex;gap:.6rem;align-items:flex-start;font-weight:500}
-    .bonus-details li::before{content:"✓";color:var(--green);font-weight:700}
-
-    .one-time{margin:3rem 0 1.5rem;text-align:center;font-size:1.2rem;color:#B9006E;font-weight:600}
-
-    /* CTA Review */
-    .cta-review{text-align:center;margin:2rem 0}
-
-    /* ==========  TRUST SECTION  ========== */
-    .trust{
-      background:#fff;
-      text-align:center;
+    a:hover {
+      text-decoration: underline;
     }
-    .author-box{max-width:500px;margin:0 auto}
-    .author-photo{width:130px;height:130px;border-radius:50%;object-fit:cover;margin:0 auto 1rem}
-    .star{color:var(--yellow);font-size:1.1rem}
-    .reviews{margin-top:2rem;display:grid;gap:1.2rem;max-width:860px;margin-left:auto;margin-right:auto}
-    .review{
-      background:var(--cream);
-      padding:1.1rem 1.25rem;
-      border-left:6px solid var(--green);
-      border-radius:10px;
-      font-size:.95rem;
-      text-align:left;
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
-    .review cite{display:block;margin-top:.5rem;font-style:normal;font-weight:600}
-
-    /* ==========  FOOTER  ========== */
-    footer{
-      background:var(--green);
-      color:#fff;
-      text-align:center;
-      padding:1.75rem .75rem;
-      font-size:.86rem;
+    .container {
+      width: 90%;
+      max-width: 960px;
+      margin: 0 auto;
     }
-    footer a{color:var(--yellow);text-decoration:underline}
+    h1, h2, h3, h4, h5 {
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+      font-family: 'Poppins', sans-serif;
+    }
+    p {
+      margin-bottom: 1rem;
+    }
 
-    /* ==========  RESPONSIVE TWEAKS  ========== */
-    @media(max-width:540px){
-      h1{font-size:1.9rem}
-      h2{font-size:1.55rem}
-      .one-time{font-size:1.05rem}
+    /*=====================================
+      TYPOGRAPHY
+    =====================================*/
+    .book-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--yellow);
+      margin-bottom: 0.5rem;
+    }
+    .sub-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--white);
+      font-style: italic;
+      margin-bottom: 1.25rem;
+    }
+    .lead {
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--dark-green);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title::after {
+      content: "";
+      width: 60px;
+      height: 4px;
+      background-color: var(--bright-green);
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    /*=====================================
+      ANIMATION (Fade & Slide Up)
+    =====================================*/
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-up {
+      opacity: 0;
+      animation: fadeSlideUp 0.8s ease-out forwards;
+    }
+    .animate-up.delay-1 {
+      animation-delay: 0.2s;
+    }
+    .animate-up.delay-2 {
+      animation-delay: 0.4s;
+    }
+    .animate-up.delay-3 {
+      animation-delay: 0.6s;
+    }
+
+    /*=====================================
+      HERO SECTION (SOLID DARK GREEN)
+    =====================================*/
+    header.hero {
+      background-color: var(--dark-green);
+      color: var(--text-light);
+      padding: 3rem 1rem 2rem;
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .hero-card {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+      padding: 2.5rem 1.5rem;
+      max-width: 420px;
+      width: 100%;
+      margin-top: 2rem;
+    }
+    .hero-image img {
+      width: 160px;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      margin: 0 auto 1.5rem;
+      display: block;
+    }
+
+    /*=====================================
+      FORM (AWeber) STYLES
+    =====================================*/
+    .form-wrap {
+      width: 100%;
+      text-align: left;
+    }
+    .form-wrap label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: var(--text-dark);
+      font-size: 0.9rem;
+    }
+    .form-wrap input[type="text"],
+    .form-wrap input[type="email"] {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      color: #000;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-wrap input[type="text"]:focus,
+    .form-wrap input[type="email"]:focus {
+      border-color: var(--bright-green);
+      box-shadow: 0 2px 6px rgba(103, 194, 58, 0.3);
+      outline: none;
+    }
+    .cta-btn {
+      display: block;
+      width: 100%;
+      padding: 0.75rem;
+      background: linear-gradient(90deg, var(--yellow) 0%, var(--yellow-deep) 100%);
+      color: var(--dark-green);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: background 0.3s, transform 0.2s;
+      text-align: center;
+    }
+    .cta-btn:hover {
+      background: linear-gradient(90deg, var(--orange) 0%, var(--yellow) 100%);
+      color: var(--text-light);
+      transform: translateY(-2px);
+    }
+
+    /*=====================================
+      SVG WAVE DIVIDER
+    =====================================*/
+    .wave-divider {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .wave-divider svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 80px;
+    }
+    .wave-divider .shape-fill {
+      fill: var(--cream);
+    }
+
+    /*=====================================
+      BENEFITS SECTION
+    =====================================*/
+    .benefits {
+      background-color: var(--cream);
+      padding: 3rem 0 4rem;
+    }
+    .benefits .container {
+      text-align: center;
+    }
+    .benefits .card {
+      background-color: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      padding: 3rem 2rem;
+      margin: 0 auto;
+      max-width: 820px;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Subtle “dot” pattern behind the card */
+    .benefits .card::before {
+      content: "";
+      position: absolute;
+      top: -40px; left: -40px;
+      width: 160%;
+      height: 160%;
+      background-image: radial-gradient(circle at 0 0, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 20px 20px;
+      opacity: 0.3;
+    }
+    .benefits ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .benefits li {
+      margin-bottom: 1.25rem;
+      position: relative;
+      padding-left: 1.75rem;
+      font-size: 1.125rem;
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+    .benefits li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--bright-green);
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+
+    /*=====================================
+      TRUST / AUTHOR SECTION
+    =====================================*/
+    .trust {
+      background-color: var(--white);
+      padding: 2.5rem 1rem;
+      border-top: 2px solid var(--bright-green);
+      border-bottom: 2px solid var(--bright-green);
+      text-align: center;
+    }
+    .trust .author-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .trust .author-name {
+      font-style: italic;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--dark-green);
+    }
+
+    /*=====================================
+      FOOTER
+    =====================================*/
+    footer {
+      background-color: var(--dark-green);
+      color: var(--text-light);
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.875rem;
+    }
+    footer a {
+      color: var(--yellow);
+      text-decoration: underline;
+    }
+    footer a:hover {
+      color: var(--orange);
+    }
+
+    /*=====================================
+      RESPONSIVE TWEAKS
+    =====================================*/
+    @media (min-width: 768px) {
+      .hero-content {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+      }
+      .hero-card {
+        margin-top: 0;
+      }
+      .hero-image {
+        margin-right: 2rem;
+      }
+      .book-title {
+        font-size: 2.5rem;
+      }
+      .sub-title {
+        font-size: 1.5rem;
+      }
+      .lead {
+        font-size: 1.125rem;
+      }
+      .benefits .card {
+        padding: 4rem 3rem;
+      }
     }
   </style>
 </head>
-<body>
 
-  <!-- ===== HERO ===== -->
+<body>
+  <!--=====================================
+    HERO SECTION – SOLID DARK GREEN
+  =====================================-->
   <header class="hero">
-    <div class="container hero-grid">
-      <div class="cover-wrapper">
-        <!-- Replace with transparent PNG / 3D mockup -->
-        <img src="cover.picky.cookbook.png" alt="The Picky Eater Cookbook Cover">
+    <div class="container hero-content">
+      <!-- 1) Mockup 3D of the book -->
+      <div class="hero-image animate-up">
+        <!-- Replace with the actual path to cover.picky.cookbook.png -->
+        <img
+          src="/images/cover.picky.cookbook.png"
+          alt="The Picky Eater Cookbook – 3D Cover"
+        />
       </div>
 
-      <div class="hero-copy">
-        <h1>The Picky Eater Cookbook</h1>
-        <p class="lead">Kid-Approved Recipes to Help Busy Parents Serve Nutritious Meals Without Stress, Waste or Drama.</p>
-        <p class="small">Enter your details below and we'll send the digital book straight to your inbox.</p>
+      <!-- 2) Title, subtitle, and AWeber form -->
+      <div class="hero-card animate-up delay-1">
+        <h1 class="book-title">The Picky Eater Cookbook</h1>
+        <p class="sub-title">
+          Kid-Approved Recipes to Help Busy Parents Serve Nutritious Meals
+          Without Stress, Waste or Drama
+        </p>
+        <p class="lead">
+          Enter your name &amp; email below to claim your FREE copy by email!
+        </p>
 
-        <!-- Aweber Embedded Form (placeholder) -->
-        <div class="form-wrapper">
-          <div class="AW-Form-867734951"></div>
+        <div class="form-wrap">
+          <!-- ======= AWeber Embedded Form (Replace with your actual snippet) ======= -->
+          <form
+            action="https://www.aweber.com/scripts/addlead.pl"
+            method="post"
+            id="aweber-form"
+          >
+            <!-- Example hidden fields – replace with your real AWeber values -->
+            <input
+              type="hidden"
+              name="listname"
+              value="your_list_name_here"
+            />
+            <input
+              type="hidden"
+              name="redirect"
+              value="https://pickyeating.tlb-publishing.com/thank-you.html"
+            />
+
+            <!-- Name Field -->
+            <label for="awf_name">Name</label>
+            <input
+              type="text"
+              id="awf_name"
+              name="name"
+              placeholder="Your Name"
+              required
+            />
+
+            <!-- Email Field -->
+            <label for="awf_email">Email</label>
+            <input
+              type="email"
+              id="awf_email"
+              name="email"
+              placeholder="Your Email"
+              required
+            />
+
+            <!-- CTA Button -->
+            <button type="submit" class="cta-btn">
+              CLAIM YOUR FREE COPY
+            </button>
+          </form>
+          <!-- ================= End of AWeber Form ================= -->
         </div>
       </div>
     </div>
+
+    <!-- SVG Wave Divider into the Benefits Section -->
+    <div class="wave-divider">
+      <svg
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 80"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,80 C300,0 900,0 1200,80 L1200,0 L0,0 Z"
+          class="shape-fill"
+        ></path>
+      </svg>
+    </div>
   </header>
 
-  <!-- ===== INSTRUCTIONS ===== -->
-  <section class="steps">
+  <!--=====================================
+    BENEFITS SECTION
+  =====================================-->
+  <section class="benefits" id="benefits">
     <div class="container">
-      <h2>How to Get the Book for <span style="color:var(--yellow);">FREE</span>:</h2>
-      <ul class="step-list">
-        <li class="step-item"><span class="icon">📧</span>Check your inbox (or spam folder)</li>
-        <li class="step-item"><span class="icon">📥</span>Download and enjoy the book</li>
-        <li class="step-item"><span class="icon">⭐</span>Review the book on Amazon</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ===== BONUS ===== -->
-  <section class="section-bg-light">
-    <div class="container bonus-intro">
-      <h2>But Wait! You Unlocked<br>More <span style="color:var(--yellow);">FREE</span> Gifts 🎁</h2>
-      <div class="bonus-image">
-        <img src="bonus.picky.cookbook.png" alt="Stress-Free Mealtime Essentials">
-      </div>
-      <h3>🎁 STRESS-FREE MEALTIME ESSENTIALS</h3>
-    </div>
-
-    <div class="container bonus-details">
-      <ul>
-        <li>Easily <strong>track your child's favorite foods</strong> and discover which ones work best.</li>
-        <li>Get support where recipes stop with <strong>tools to help your child try new foods.</strong></li>
-        <li><strong>40+ slow‑cooker, nutritious meals</strong> that cook themselves while you get your life done.</li>
-      </ul>
-
-      <p class="one-time">💖 ONE TIME OFFER!</p>
-      <p><strong>Here’s how you can claim your exclusive gift:</strong></p>
-      <ol style="margin-top:1rem;margin-left:1.2rem">
-        <li style="margin-bottom:1rem"><strong>STEP 1:</strong> <a href="#REPLACE_WITH_AMAZON_REVIEW_LINK" target="_blank">Write a review on Amazon</a> for "The Picky Eater Cookbook"</li>
-        <li><strong>STEP 2:</strong> Once your review is submitted, our system will verify it within <strong>24 hours to 3 days</strong>. Once verified, you'll instantly receive the <em>"STRESS‑FREE MEALTIME ESSENTIALS"</em> bonus.</li>
-      </ol>
-
-      <div class="cta-review">
-        <a href="#REPLACE_WITH_AMAZON_REVIEW_LINK" class="btn" style="background:var(--orange);">Leave a Review on Amazon</a>
+      <h2 class="section-title">Why You’ll Love This Cookbook</h2>
+      <div class="card animate-up delay-1">
+        <ul>
+          <li>
+            <strong>Quick, Kid-Friendly Meals:</strong> Simple recipes ready in
+            20 minutes or less—even on your busiest days.
+          </li>
+          <li>
+            <strong>Hidden Veggie Hacks:</strong> Sneak in extra nutrition using
+            familiar flavors and fun formats kids already love.
+          </li>
+          <li>
+            <strong>No More Stressy Mealtimes:</strong> Proven strategies to
+            reduce dinner battles and make eating enjoyable again.
+          </li>
+          <li>
+            <strong>Research-Backed Tips:</strong> Easy-to-follow guidance rooted
+            in pediatric nutrition and positive‐feeding principles.
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- ===== TRUST ===== -->
+  <!--=====================================
+    TRUST / AUTHOR SECTION
+  =====================================-->
   <section class="trust">
-    <div class="container author-box">
-      <img src="profilo.sarah.dawson.png" alt="Author Sarah Dawson" class="author-photo">
-      <h3>About Sarah Dawson</h3>
-      <p>Sarah has already helped <strong>hundreds of families</strong> turn mealtime battles into fun moments of connection. Now it’s your turn!</p>
-    </div>
-
-    <div class="container reviews">
-      <div class="review">
-        "My picky 4‑year‑old actually asked for seconds! Thanks to these clever recipes, dinner time is no longer a fight." <cite>— Emma, Mom of 2</cite>
-      </div>
-      <div class="review">
-        "Quick, colorful and SO tasty. The slow‑cooker section is a lifesaver on busy weekdays." <cite>— Jennifer</cite>
-      </div>
-      <div class="review">
-        "The bonus pack gave me extra tools to track progress – brilliant idea!" <cite>— Valentina</cite>
-      </div>
+    <div class="container">
+      <!-- Small circular author photo -->
+      <img
+        src="/images/sarah-dawson-profile.jpg"
+        alt="Sarah Dawson"
+        class="author-photo"
+      />
+      <p class="author-name">
+        Written by <strong>Sarah Dawson</strong>, pediatric nutrition expert
+        &amp; modern parent coach.
+      </p>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
+  <!--=====================================
+    FOOTER
+  =====================================-->
   <footer>
-    <p>&copy; <span id="year"></span> Sarah Dawson Publishing. All rights reserved. · <a href="#REPLACE_WITH_PRIVACY_URL" target="_blank">Privacy &amp; Cookies</a></p>
+    <div class="container">
+      <p>
+        © 2025 The Picky Eater Cookbook &nbsp;·&nbsp;
+        <a href="/privacy-policy" target="_blank">Privacy Policy</a>
+        &nbsp;·&nbsp;All rights reserved.
+      </p>
+    </div>
   </footer>
-
-  <script>
-    // Insert current year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
