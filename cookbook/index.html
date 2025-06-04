@@ -44,11 +44,9 @@ header{
     .cta-btn{display:block;width:100%;max-width:240px;margin:2rem auto 0;background:var(--yellow);color:var(--dark-green);font-weight:bold;padding:0.75rem 1.5rem;border:0;border-radius:4px;font-size:1rem;cursor:pointer;text-align:center}
     .cta-btn:hover{background:var(--orange);color:var(--text-light)}
 
-    /* =========  OFFER (celebrate + form)  ========= */
-.offer-wrapper{background:#eff7f6;}
-
-.offer{background:#eff7f6;clip-path:polygon(0 0,100% 0,100% 95%,0 100%);max-width:680px;margin:0 auto;text-align:center;padding:2rem 0;
-}
+    /*================ OFFER (celebrate + form) ================*/
+    .offer{background:var(--light-green);color:var(--text-dark);padding:2rem 0;}
+    .offer-wrapper{max-width:600px;margin:0 auto;text-align:center}
 
     /*======================= BENEFITS =======================*/
     section{padding:0.5rem 0}
@@ -57,7 +55,7 @@ header{
     .benefits ul{list-style:none;padding:0;margin:0 auto;max-width:600px;text-align:left}
     .benefits li{margin:0.5rem 0;font-size:1.125rem;position:relative;padding-left:1.5rem}
     .benefits li::before{content:"✔";position:absolute;left:0;color:var(--yellow);font-size:1.2rem;line-height:1}
-    .benefits-wrapper {background-color: var(--yellow);padding: 2px 0;clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 100%);}
+    .benefits-wrapper {background-color: var(--yellow);padding: 6px 0;clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);}
 
     /*======================= TRUST =======================*/
     .trust{background:var(--cream);color:var(--text-dark);text-align:center;padding:2rem 0;border-bottom:2px solid var(--yellow)}
@@ -97,14 +95,13 @@ header{
 </header>
         
  <!-- =============== OFFER SECTION =============== -->
-<div class="offer-wrapper">
-  <section class="offer">
+<section class="offer">
   <div class="container offer-wrapper">
     <p class="celebrate">
       To celebrate reaching thousands of families and becoming a bestseller,
       we’re giving away this $16.95 cookbook absolutely <strong>FREE</strong> — for a limited time only.
     </p>
-</div>
+
     <!-- ========= AWeber Embedded Form ========= -->
 <div class="AW-Form-501599832"></div>
 <script type="text/javascript">(function(d, s, id) {
