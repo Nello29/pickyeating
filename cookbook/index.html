@@ -9,13 +9,14 @@
       COLOR PALETTE (user‑approved)
     =====================================================*/
     :root {
-      --primary-green: #eff7f6; /* hero + benefits */
+      --primary-green: #388e3c; /* hero + benefits */
       --dark-green:    #08431a; /* footer */
       --yellow:        #FFDF52;
       --orange:        #FF8C42;
       --cream:         #FFF9EF;
       --text-light:    #ffffff;
       --text-dark:     #262626;
+      --light-green:   #eff7f6;
     }
 
     /*======================= RESET & BASE =======================*/
@@ -41,6 +42,10 @@
     input[type=text],input[type=email]{width:100%;max-width:320px;padding:0.75rem;font-size:1rem;margin:0 auto 0.5rem;border:1px solid #ccc;border-radius:4px;display:block;color:#000}
     .cta-btn{display:block;width:100%;max-width:240px;margin:2rem auto 0;background:var(--yellow);color:var(--dark-green);font-weight:bold;padding:0.75rem 1.5rem;border:0;border-radius:4px;font-size:1rem;cursor:pointer;text-align:center}
     .cta-btn:hover{background:var(--orange);color:var(--text-light)}
+
+    /*================ OFFER (celebrate + form) ================*/
+    .offer{background:var(--light-green);color:var(--text-dark);padding:2rem 0}
+    .offer-wrapper{max-width:600px;margin:0 auto;text-align:center}
 
     /*======================= BENEFITS =======================*/
     section{padding:0.5rem 0}
@@ -88,10 +93,19 @@
       <div class="hero-text">
         <h1 class="book-title">The Picky Eater Cookbook</h1>
         <p class="sub-title">Kid‑Approved Recipes to Help Busy Parents Serve Nutritious Meals</p>
-        <p class="celebrate">To celebrate reaching thousands of families and becoming a bestseller, we’re giving away this $16.95 cookbook absolutely <strong>FREE</strong> — for a limited time only.</p>
 
-        <!-- ======= AWeber Embedded Form (replace placeholders) ======= -->
-       <div class="AW-Form-501599832"></div>
+</header>
+        
+ <!-- =============== OFFER SECTION =============== -->
+<section class="offer">
+  <div class="container offer-wrapper">
+    <p class="celebrate">
+      To celebrate reaching thousands of families and becoming a bestseller,
+      we’re giving away this $16.95 cookbook absolutely <strong>FREE</strong> — for a limited time only.
+    </p>
+
+    <!-- ========= AWeber Embedded Form ========= -->
+          <div class="AW-Form-501599832"></div>
 <script type="text/javascript">(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
@@ -100,8 +114,7 @@
     fjs.parentNode.insertBefore(js, fjs);
     }(document, "script", "aweber-wjs-2fkmlwiec"));
 </script>
-</header>
-        
+       
   <!-- ================= BENEFITS SECTION ================= -->
   <section class="benefits">
     <div class="container">
