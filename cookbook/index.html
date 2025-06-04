@@ -50,13 +50,38 @@ header{
 
     /*======================= BENEFITS =======================*/
     section{padding:0.5rem 0}
-    .benefits{background:var(--primary-green);color:var(--text-light);text-align:center;clip-path:polygon(0 0,100% 0,100% 95%,0 100%);position:relative;}
+    .benefits {
+  background: var(--primary-green);
+  color: var(--text-light);
+  text-align: center;
+  padding: 2rem 0 3rem;
+  position: relative;}
     .benefits h2{color:var(--yellow);font-size:1.5rem;margin-bottom:1rem;margin-top:2rem;font-weight:bold}
     .benefits ul{list-style:none;padding:0;margin:0 auto;max-width:600px;text-align:left}
     .benefits li{margin:0.5rem 0;font-size:1.125rem;position:relative;padding-left:1.5rem}
     .benefits li::before{content:"✔";position:absolute;left:0;color:var(--yellow);font-size:1.2rem;line-height:1}
-    .benefits-wrapper{background:var(--yellow);padding:2px 0 0;clip-path:polygon(0 0,100% 0,100% 95%,0 100%);position:relative;}
-    .benefits-wrapper::after{content:"";position:absolute;top:2px;left:0;width:100%;height:6vw;background:var(--cream);clip-path:polygon(100% 0,0 100%,100% 100%);z-index:0;pointer-events:none;}
+    .benefits::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6vw;
+  background: var(--yellow);
+  transform-origin: top left;
+  transform: skewY(-3deg);
+  z-index: 1;
+  pointer-events: none;
+}
+    .benefits-wrapper {
+  position: relative;
+}
+
+.trust {
+  background: var(--cream);
+  margin-top: -2vw;
+  padding-top: calc(2rem + 2vw);
+}
 
     /*======================= TRUST =======================*/
     .trust{background:var(--cream);color:var(--text-dark);text-align:center;padding:2rem 0;border-bottom:2px solid var(--yellow)}
