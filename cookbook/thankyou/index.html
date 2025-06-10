@@ -73,40 +73,28 @@
     header{
       background:var(--primary-green);
       color:var(--text-light);
-      padding:3rem 0;
+      padding:1rem 0; /* Further reduced padding */
       position:relative;
     }
     
     .success-icon{
-      font-size:4rem;
+      font-size:2rem; /* Further reduced icon size */
       color:var(--yellow);
-      margin-bottom:1rem;
+      margin-bottom:0.2rem; /* Further reduced margin */
       animation:bounce 2s infinite;
     }
     
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% {
-        transform:translateY(0);
-      }
-      40% {
-        transform:translateY(-10px);
-      }
-      60% {
-        transform:translateY(-5px);
-      }
-    }
-    
     .main-headline{
-      font-size:2.5rem;
+      font-size:1.5rem; /* Further reduced title size */
       line-height:1.2;
-      margin:0 0 1rem;
+      margin:0 0 0.2rem; /* Further reduced margin */
       text-align:center;
       font-weight:bold;
     }
     
     .sub-headline{
-      font-size:1.25rem;
-      margin:0 0 2rem;
+      font-size:0.9rem; /* Further reduced subtitle size */
+      margin:0 0 0.5rem; /* Further reduced margin */
       text-align:center;
       opacity:0.9;
     }
@@ -238,7 +226,7 @@
     }
     
     .bonus-subheadline{
-      font-size:1.25rem;
+      font-size:1.2rem; /* Slightly reduced for conciseness */
       margin-bottom:2rem;
       opacity:0.9;
     }
@@ -251,6 +239,7 @@
       max-width:600px;
       backdrop-filter:blur(10px);
       border:1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* Improved shadow */
     }
     
     .bonus-title{
@@ -281,10 +270,10 @@
     .time-estimate{
       background:var(--orange);
       color:var(--text-light);
-      padding:0.5rem 1rem;
+      padding:0.75rem 1.25rem; /* Increased padding */
       border-radius:1rem;
       display:inline-block;
-      font-size:0.875rem;
+      font-size:0.95rem; /* Slightly increased font size */
       font-weight:bold;
       margin-top:0.5rem;
     }
@@ -315,11 +304,11 @@
     /*======================= DESKTOP TWEAKS =======================*/
     @media(min-width:768px){
       .main-headline{
-        font-size:3rem;
+        font-size:2.2rem; /* Reduced title size for desktop */
       }
       
       .sub-headline{
-        font-size:1.5rem;
+        font-size:1.1rem; /* Reduced subtitle size for desktop */
       }
       
       .email-headline{
@@ -375,18 +364,18 @@
       <div class="bonus-container">
         <h2 class="bonus-headline">But Wait... There's More! 🎁</h2>
         <p class="bonus-subheadline">
-          While you're waiting for your cookbook, I’ve got something special to help you feel more confident and less stressed at mealtime.
+          An exclusive bonus awaits to transform your mealtime experience!
         </p>
         
         <div class="bonus-preview-card">
           <img src="bonus.pickycookbook.png" alt="Stress-Free Mealtime Essentials Bonus" class="bonus-image">
-          <p style="margin-bottom: 1.5rem; opacity: 0.9; color: var(--text-light);">
+          <p style="margin-bottom: 1.5rem; opacity: 0.9; color: var(--text-light); font-size: 1.1rem;">
             This exclusive bonus bundle complements your cookbook perfectly and helps you tackle the emotional side of picky eating:
           </p>
           
           <div class="review-highlight">
-            🔓 To unlock it, all you need is a quick Amazon review of the book. Just 30 seconds and you're in!
-            <div class="time-estimate">⏱️ Find out more in your email!</div>
+            💡 All instructions to unlock this exclusive bonus are in your email! It will only take you 30 seconds to get it!
+            <div class="time-estimate">⏱️ Check your email now!</div>
           </div>
         </div>
       </div>
